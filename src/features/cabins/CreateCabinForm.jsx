@@ -35,14 +35,15 @@ function CreateCabinForm() {
   });
 
   function onSubmit(data) {
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
   }
 
   // Esta função será executada quando o formulário aoresentar erros. No entanto, lidamos com os erros através do formState
-  function onError(errors) {}
+  // function onError() {}
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    // OnError pode ser passado como sengundo parâmetro em handleSumbit (handleSubmit(onSubmit, onError))
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
@@ -108,7 +109,12 @@ function CreateCabinForm() {
 
       <FormRow>
         <Label htmlFor="image">Cabin photo</Label>
-        <FileInput id="image" accept="image/*" />
+        <FileInput
+          id="image"
+          accept="image/*"
+          type="file"
+          {...register("image", { required: "This field is required." })}
+        />
       </FormRow>
 
       <FormRow>
