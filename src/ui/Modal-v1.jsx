@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { HiXMark } from "react-icons/hi2";
@@ -55,47 +54,19 @@ const Button = styled.button`
   }
 `;
 
-const ModalContext = createContext();
-
-function Modal({ children }) {
-  const [openName, setOpenName] = useState("");
-
-  const close = () => setOpenName("");
-  const open = setOpenName;
-
-  return (
-    <ModalContext.Provider value={{ openName, open, close }}>
-      {children}
-    </ModalContext.Provider>
-  );
-}
-
-function Open({ children, opens: opensWindowName }) {
-  const { open } = useContext(ModalContext);
-
-  // cloneElement é uma função que clona um componente e possibilita que novos props sejam passados. Neste caso, o único jeito de passar o onClick event para o Button é através desta técnica que não é a melhor das práticas.
-  return cloneElement(children, { onClick: () => open(opensWindowName) });
-}
-
-function Window({ children, name }) {
-  const { openName, close } = useContext(ModalContext);
-
-  if (name !== openName) return null;
+function Modal({ children, onClose }) {
   // createPortal: Permite que um componente seja renderizado em outro lugar da página, mantendo o componente no mesmo local da árvore de componentes do React (props continnuam funcionando).
   return createPortal(
     <Overlay>
       <StyledModal>
-        <Button onClick={close}>
+        <Button onClick={onClose}>
           <HiXMark />
         </Button>
-        <div>{cloneElement(children, { onCloseModal: close })}</div>
+        <div>{children}</div>
       </StyledModal>
     </Overlay>,
     document.body
   );
 }
-
-Modal.Open = Open;
-Modal.Window = Window;
 
 export default Modal;
