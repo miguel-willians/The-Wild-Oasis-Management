@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { getCabins } from "../../services/apiCabins";
 
-export default function () {
+export default function useCabins() {
   const {
     isLoading,
     data: cabins,
