@@ -12,6 +12,7 @@ function CabinTable() {
 
   if (isLoading) return <Spinner />;
 
+  // 1) Filragem:
   const filterValue = searchParams.get("discount") || "all";
 
   let filteredCabins;
@@ -21,6 +22,17 @@ function CabinTable() {
     filteredCabins = cabins.filter((cabin) => cabin.discount === 0);
   if (filterValue === "with-discount")
     filteredCabins = cabins.filter((cabin) => cabin.discount > 0);
+
+  // 2) Ordenação:
+  const sortBy = searchParams.get("sortBy") || "startDate-asc";
+  const [field, direction] = sortBy.split("-");
+
+  // O método sort abaixo ordenará as cabins de forma ascendente por padrão. O modifier será responsável por negativar o resultado do sort, ordenando as cabins de forma descendente.
+  const modifier = direction === "asc" ? 1 : -1;
+  const sortedCabins =
+    field === "name"
+      ? filteredCabins.sort((a, b) => a.name.localeCompare(b.name) * modifier)
+      : filteredCabins?.sort((a, b) => (a[field] - b[field]) * modifier);
 
   return (
     <Menus>
@@ -35,7 +47,7 @@ function CabinTable() {
         </Table.Header>
 
         <Table.Body
-          data={filteredCabins}
+          data={sortedCabins}
           render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
         />
       </Table>
