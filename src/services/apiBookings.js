@@ -8,7 +8,15 @@ export default async function getBookings({ filter, sortBy }) {
       "id, created_at, startDate, endDate, numNights, numGuests, status, totalPrice, cabins(name), guests(fullName, email)"
     );
 
-  if (filter !== null) query = query.eq(filter.field, filter.value);
+  // Filtro:
+  if (filter) query = query.eq(filter.field, filter.value);
+
+  // Ordenação:
+
+  if (sortBy)
+    query = query.order(sortBy.field, {
+      ascending: sortBy.direction === "asc",
+    });
 
   const { data, error } = await query;
 
