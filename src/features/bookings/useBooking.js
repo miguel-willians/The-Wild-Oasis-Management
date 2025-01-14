@@ -11,7 +11,7 @@ export default function useBooking() {
     data: booking,
     error,
   } = useQuery({
-    queryKey: ["booking"],
+    queryKey: ["booking", bookingId],
     queryFn: () => getBooking(bookingId),
     retry: false, //React query tenta requisitar os dados três vezes antes de sinalizar um erro, mas nesse caso o dado pode não existir
   });
