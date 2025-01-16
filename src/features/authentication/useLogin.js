@@ -12,7 +12,7 @@ export function useLogin() {
     onSuccess: (user) => {
       // Forma manual de guardar dados no cachê do React Query.
       queryClient.setQueriesData(["user"], user);
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     },
 
     onError: (err) => {
