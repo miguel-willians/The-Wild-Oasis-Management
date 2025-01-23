@@ -37,7 +37,7 @@ function TodayItem({ activity }) {
 
       <Flag src={guests.countryFlag} alt={`Flag of ${guests.country}`} />
       <Guest>{guests.fullName}</Guest>
-      <div>{numNights}</div>
+      <div>{numNights} nights</div>
 
       {status === "unconfirmed" && (
         <Button
