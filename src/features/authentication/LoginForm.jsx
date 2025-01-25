@@ -51,7 +51,7 @@ function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           disabled={isLoading}
-          placeholder="Try: 'admin'"
+          placeholder="Try: 'admin123'"
         />
       </FormRowVertical>
       <FormRowVertical orientation="vertical">
