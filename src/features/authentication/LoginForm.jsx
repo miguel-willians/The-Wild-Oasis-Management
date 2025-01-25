@@ -40,6 +40,7 @@ function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={isLoading}
+          placeholder="Try: 'admin@wildoasis.com'"
         />
       </FormRowVertical>
       <FormRowVertical label="Password" orientation="vertical">
@@ -50,6 +51,7 @@ function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           disabled={isLoading}
+          placeholder="Try: 'admin'"
         />
       </FormRowVertical>
       <FormRowVertical orientation="vertical">
