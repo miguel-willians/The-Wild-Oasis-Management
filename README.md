@@ -4,7 +4,7 @@
 
 O **The Wild Oasis Management** é um aplicativo desenvolvido especificamente para gerenciar operações de hospedagem em cabanas de um hotel. Este sistema foi projetado para atender às necessidades da equipe do hotel, oferecendo uma interface intuitiva para o gerenciamento de reservas, clientes e cabanas. O foco é garantir um fluxo eficiente de trabalho e centralizar todas as informações necessárias para um serviço de alta qualidade.
 
-Você pode acessar o projeto [aqui](https://the-wild-oasis-management-tau.vercel.app).
+Você pode acessar o projeto [aqui](towildoasisdashboard.vercel.app).
 
 ## Tecnologias Utilizadas:
 
@@ -61,7 +61,7 @@ Você pode acessar o projeto [aqui](https://the-wild-oasis-management-tau.vercel
 
 **The Wild Oasis Management** is an application specifically developed to manage the hosting operations of hotel cabins. This system was designed to meet the needs of the hotel staff, offering an intuitive interface for managing reservations, guests, and cabins. The main focus is to ensure an efficient workflow and centralize all necessary information for high-quality service.
 
-You can access the project [here](https://the-wild-oasis-management-tau.vercel.app).
+You can access the project [here](towildoasisdashboard.vercel.app).
 
 ## Technologies Used:
 
